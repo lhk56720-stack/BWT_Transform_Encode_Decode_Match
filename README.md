@@ -11,12 +11,12 @@ BWT
 
 
 #### 使用说明
+```
 cd build
 cmake ..
 make
 ./BWT2.0 
-
-
+```
 #### 参与贡献
 
 1.  Fork 本仓库
