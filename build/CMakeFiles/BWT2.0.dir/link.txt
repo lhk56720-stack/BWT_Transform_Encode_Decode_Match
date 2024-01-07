@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/BWT2.0.dir/src/BwtTransform.cpp.o CMakeFiles/BWT2.0.dir/src/main.cpp.o -o BWT2.0 
