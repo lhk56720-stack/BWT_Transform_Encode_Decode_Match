@@ -9,6 +9,8 @@ BwtTransform::BwtTransform(std::string origin)
     newOriginalStr = originalStr + MARKER;
     len = newOriginalStr.size();
     bwtMatrix.resize(len, string());
+    lastStr = string();
+    firstStr = string();
 }
 
 string BwtTransform::getNewstr(string str)
@@ -17,19 +19,49 @@ string BwtTransform::getNewstr(string str)
 }
 void BwtTransform::buildMatrix()
 {
-    string tmpStr = originalStr;
+    cout << "原始母串:" << originalStr << endl;
+    cout << "构建后母串:" << newOriginalStr << endl;
+    string tmpStr = newOriginalStr;
     for (int i = 0; i < len; ++i)
     {
         bwtMatrix[i] = tmpStr;
         tmpStr = getNewstr(tmpStr);
     }
+    cout << "bwt矩阵:" << endl;
+    printBwt();
+    cout << "排序后的bwt矩阵:" << endl;
+    sortMatrix();
+    printBwt();
+    initFLStr();
+    cout << "F串:" << firstStr << endl
+         << "L串:" << lastStr << endl;
 }
 
 void BwtTransform::sortMatrix()
 {
-    // sort(bwtMatrix[0].begin(), bwtMatrix[0].end());
-    sort(bwtMatrix.begin(), bwtMatrix.end(), [](const string &a, const string &b)
-         { return a[0] < b[0]; });
+    sort(bwtMatrix.begin(), bwtMatrix.end(), [&](const string &a, const string &b)
+         {
+            for (int i = 0; i < len;++i)
+            {
+            if(a[i]<b[i])
+            {
+                return true;
+            }
+            else if(a[i]>b[i])
+            {
+                return false;
+            }
+            }
+            return true; });
+}
+
+void BwtTransform::initFLStr()
+{
+    for (int i = 0; i < len; ++i)
+    {
+        firstStr += bwtMatrix[i][0];
+        lastStr += bwtMatrix[i][len - 1];
+    }
 }
 
 void BwtTransform::printBwt()

@@ -4,14 +4,11 @@ using namespace std;
 int main()
 {
     string originalStr = "ACAACG";
+    //BW矩阵
+    auto start = clock();
     BwtTransform bwt(originalStr);
-    cout << "原始母串:" << bwt.getOriginalStr() << endl;
-    cout << "构建后母串:" << bwt.getNewOriginalStr() << endl;
     bwt.buildMatrix();
-    cout << "bwt矩阵:" << endl;
-    bwt.printBwt();
-    cout << "排序后的bwt矩阵:" << endl;
-    bwt.sortMatrix();
-    bwt.printBwt();
+    auto end = clock();
+    cout << "executable time:" << static_cast<double>(end - start) / CLOCKS_PER_SEC << "s" << endl;
     return 0;
 }

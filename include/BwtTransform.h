@@ -4,6 +4,9 @@
 /*
 1.BWT的实现
     1.1通过BWT矩阵实现
+        构建矩阵 O(N²)
+        排序 O(N²logN)
+        总时间复杂度 O(N²+N²logN)
     1.2通过后缀数列实现
 */
 const char MARKER = '$'; // 假定MARKER比任意字符都小
@@ -19,6 +22,8 @@ public:
     void buildMatrix();
     // 字典序排序矩阵
     void sortMatrix();
+    // 获取首串和尾串
+    void initFLStr();
 
     // 1.2通过后缀数列实现
     void buildSuffixArray();
@@ -47,4 +52,6 @@ private:
     std::string newOriginalStr; // 构建后的母串
     int len;
     std::vector<std::string> bwtMatrix; // bwt矩阵
+    std::string lastStr;
+    std::string firstStr;
 };
