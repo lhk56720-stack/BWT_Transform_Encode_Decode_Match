@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <unordered_map>
 /*
 1.BWT的实现
     1.1通过BWT矩阵实现
@@ -10,25 +11,29 @@
     1.2通过后缀数列实现
 */
 const char MARKER = '$'; // 假定MARKER比任意字符都小
+enum class Mode : char
+{
+    MATRIX,
+    SUFFIX
+};
 class BwtTransform
 {
 public:
     BwtTransform(std::string origin);
-    // 1.1通过BWT矩阵实现
 
     // 循环左移获取字符串
-    std::string getNewstr(std::string str);
-    // 构建BWT矩阵
-    void buildMatrix();
+    virtual std::string getNewstr(std::string str, Mode mode) = 0;
+    // 1.1通过BWT矩阵实现
+    virtual void buildMatrix() = 0;
     // 字典序排序矩阵
-    void sortMatrix();
+    virtual void sortMatrix() = 0;
     // 获取首串和尾串
-    void initFLStr();
+    virtual void initFLStr() = 0;
+
+    virtual void printBwt() = 0;
 
     // 1.2通过后缀数列实现
     void buildSuffixArray();
-
-    void printBwt();
 
     inline std::string getOriginalStr()
     {
@@ -42,16 +47,26 @@ public:
     {
         return len;
     }
-    inline std::vector<std::string> getBwtMatrix()
+    inline std::string getLastStr()
     {
-        return bwtMatrix;
+        return lastStr;
+    }
+    inline std::string getFirstStr()
+    {
+        return firstStr;
     }
 
 private:
+    std::unordered_map<char, int> baseMap;
     std::string originalStr;    // 母串
     std::string newOriginalStr; // 构建后的母串
     int len;
-    std::vector<std::string> bwtMatrix; // bwt矩阵
+
+    std::vector<int> SA;       // 后缀数组          你排第几
+    std::vector<int> Rank;     // 排序数组          排第几的是谁
+    std::vector<int> tmpArray; // 用于基数排序的辅助数组
+
+protected:
     std::string lastStr;
     std::string firstStr;
 };

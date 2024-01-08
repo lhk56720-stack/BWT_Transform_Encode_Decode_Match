@@ -5,69 +5,81 @@ using namespace std;
 #include <algorithm>
 BwtTransform::BwtTransform(std::string origin)
 {
+    cout << "调用了BwtTransform父类" << endl;
+    baseMap = {{'$', 0}, {'A', 1}, {'C', 2}, {'G', 3}, {'T', 4}};
     originalStr = origin;
     newOriginalStr = originalStr + MARKER;
     len = newOriginalStr.size();
-    bwtMatrix.resize(len, string());
+
     lastStr = string();
     firstStr = string();
+
+    SA.resize(len, 0);
+    Rank.resize(len, 0);
+    tmpArray.resize(len, 0);
 }
 
-string BwtTransform::getNewstr(string str)
+void BwtTransform::buildSuffixArray()
 {
-    return str.substr(1) + str[0];
-}
-void BwtTransform::buildMatrix()
-{
-    cout << "原始母串:" << originalStr << endl;
-    cout << "构建后母串:" << newOriginalStr << endl;
-    string tmpStr = newOriginalStr;
-    for (int i = 0; i < len; ++i)
-    {
-        bwtMatrix[i] = tmpStr;
-        tmpStr = getNewstr(tmpStr);
-    }
-    cout << "bwt矩阵:" << endl;
-    printBwt();
-    cout << "排序后的bwt矩阵:" << endl;
-    sortMatrix();
-    printBwt();
-    initFLStr();
-    cout << "F串:" << firstStr << endl
-         << "L串:" << lastStr << endl;
-}
+    // cout << "原始母串:" << originalStr << endl;
+    // // cout << "构建后母串:" << newOriginalStr << endl;
+    // string tmpStr = originalStr;
+    // // 第一轮基数排序
+    // for (int i = 0; i < len; ++i)
+    // {
+    //     Rank[i] = baseMap[originalStr[i]];
+    // }
+    // cout << "第一轮基数排序:";
+    // for (int i = 0; i < len; ++i)
+    // {
+    //     cout << Rank[i] << " ";
+    // }
+    // // 倍增算法主循环
+    // for (int i = 1, p = 1; i <= len; i *= 2)
+    // {
+    //     // 合并第一第二关键字
+    //     for (int j = 0; j < len; ++j)
+    //     {
+    //         Rank[j] = Rank[p++] + Rank[j] * 10;
+    //     }
+    //     static int k = 0;
+    //     cout << "第" << k++ << "次合并：" << endl;
+    //     for (int i = 0; i < len; ++i)
+    //     {
+    //         cout << Rank[i] << " ";
+    //     }
+    //     cout << "-----" << endl;
+    //     // 排序
+    //     for (int i = 0; i < len; ++i)
+    //     {
+    //         tmpArray[i] = i;
+    //     }
+    //     sort(tmpArray.begin(), tmpArray.end(), [&](int &a, int &b)
+    //          { return Rank[a] < Rank[b]; });
+    //     Rank = tmpArray;
+    //     cout << "--排序---" << endl;
+    //     for (int i = 0; i < len; ++i)
+    //     {
+    //         cout << Rank[i] << " ";
+    //     }
+    //     cout << "-----" << endl;
+    // }
+    // for (int i = 0; i < len; ++i)
+    // {
+    //     SA[Rank[i]] = i;
+    // }
 
-void BwtTransform::sortMatrix()
-{
-    sort(bwtMatrix.begin(), bwtMatrix.end(), [&](const string &a, const string &b)
-         {
-            for (int i = 0; i < len;++i)
-            {
-            if(a[i]<b[i])
-            {
-                return true;
-            }
-            else if(a[i]>b[i])
-            {
-                return false;
-            }
-            }
-            return true; });
-}
+    // cout << "Rank:";
+    // for (int i = 0; i < len; ++i)
+    // {
+    //     cout << Rank[i] << " ";
+    // }
+    // cout << endl;
+    // cout << "SA:";
+    // for (int i = 0; i < len; ++i)
+    // {
+    //     cout << SA[i] << " ";
+    // }
 
-void BwtTransform::initFLStr()
-{
-    for (int i = 0; i < len; ++i)
-    {
-        firstStr += bwtMatrix[i][0];
-        lastStr += bwtMatrix[i][len - 1];
-    }
-}
-
-void BwtTransform::printBwt()
-{
-    for (int i = 0; i < len; ++i)
-    {
-        cout << bwtMatrix[i] << endl;
-    }
+    // 第一轮基数排序
 }
