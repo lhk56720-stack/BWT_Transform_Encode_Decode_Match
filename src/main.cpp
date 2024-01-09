@@ -1,16 +1,18 @@
 #include "../include/BwtTransform.h"
 #include "../include/BwMatrix.h"
+#include "../include/SuffixArray.h"
 #include <iostream>
 using namespace std;
 int main()
 {
     string originalStr = "ACAACG";
     auto start = clock();
-    BwtTransform *bwt = new BwMatrix(originalStr);
-#if 1
+#if 0
     // BW矩阵
+    BwtTransform *bwt = new BwMatrix(originalStr);
     bwt->buildMatrix();
 #else
+    BwtTransform *bwt = new SuffixArray(originalStr);
     bwt->buildSuffixArray();
 #endif
     auto end = clock();

@@ -4,9 +4,10 @@ class BwMatrix : public BwtTransform
 {
 public:
     BwMatrix(std::string origin);
-
+    ~BwMatrix() override;
     // 1.1通过BWT矩阵实现
-    void buildMatrix() override;
+    void
+    buildMatrix() override;
 
     // 循环左移获取字符串
     std::string getNewstr(std::string str, Mode mode) override;

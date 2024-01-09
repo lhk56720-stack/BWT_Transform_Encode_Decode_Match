@@ -8,6 +8,9 @@ BwMatrix::BwMatrix(std::string origin) : BwtTransform(origin)
     cout << "调用了BW矩阵子类" << endl;
     bwtMatrix.resize(getLen(), string());
 }
+BwMatrix::~BwMatrix()
+{
+}
 void BwMatrix::buildMatrix()
 {
     cout << "原始母串:" << getOriginalStr() << endl;
