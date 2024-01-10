@@ -4,7 +4,6 @@ using namespace std;
 #include <set>
 SuffixArray::SuffixArray(std::string origin) : BwtTransform(origin)
 {
-    len = getLen();
     SA.resize(len, 0);
     Rank.resize(len, 0);
     tmpArray.resize(len, 0);
@@ -20,12 +19,14 @@ bool cmp(int *r, int a, int b, int len)
 }
 void SuffixArray::buildSuffixArray()
 {
+    cout << "母串:" << originalStr << endl;
     // 第一次基数排序       //ACAACG$
     for (int i = 0; i < len; ++i)
     {
-        buckets[baseMap[getNewOriginalStr()[i]]]++; // 统计每个碱基出现的次数
-        Rank[i] = baseMap[getNewOriginalStr()[i]];
+        buckets[baseMap[originalStr[i]]]++; // 统计每个碱基出现的次数
+        Rank[i] = baseMap[originalStr[i]];
     }
+    cout << "-----第一次基数排序-----" << endl;
     Debug("buckets", buckets);
     Debug("Rank", Rank);
     // 桶转换为前缀和数组
@@ -33,8 +34,7 @@ void SuffixArray::buildSuffixArray()
     {
         buckets[i] += buckets[i - 1];
     }
-    /*Debug("前缀和", buckets, 5);*/
-    Debug("sum of front", buckets);
+    Debug("前缀和", buckets);
     for (int i = len - 1; i >= 0; i--)
         SA[--buckets[Rank[i]]] = i;
 
@@ -67,8 +67,21 @@ void SuffixArray::buildSuffixArray()
         for (int i = 1; i < len; i++)
             Rank[SA[i]] = cmp(tmpArray.data(), SA[i - 1], SA[i], j) ? p - 1 : p++;
     }
+    cout << "-----后缀数组得到的结果-----" << endl;
     Debug("SA", SA);
     Debug("RANK", Rank);
+    cout << "-----首列和尾列-----" << endl;
+    initFLStr();
+    cout << "firstStr:" << firstStr << endl;
+    cout << "lastStr:" << lastStr << endl;
+}
+void SuffixArray::initFLStr()
+{
+    for (int i = 0; i < len; ++i)
+    {
+        firstStr += originalStr[SA[i]];
+        lastStr += originalStr[Rank[i]];
+    }
 }
 void SuffixArray::Debug(string str, vector<int> &arr)
 {

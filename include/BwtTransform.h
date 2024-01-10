@@ -40,30 +40,15 @@ public:
     {
         return originalStr;
     }
-    inline std::string getNewOriginalStr()
-    {
-        return newOriginalStr;
-    }
     inline int getLen()
     {
         return len;
     }
-    inline std::string getLastStr()
-    {
-        return lastStr;
-    }
-    inline std::string getFirstStr()
-    {
-        return firstStr;
-    }
-
-private:
-    std::string originalStr;    // 母串
-    std::string newOriginalStr; // 构建后的母串
-    int len;
 
 protected:
     std::unordered_map<char, int> baseMap;
-    std::string lastStr;
-    std::string firstStr;
+    std::string lastStr;     // 尾列
+    std::string firstStr;    // 首列
+    std::string originalStr; // 母串
+    int len;                 // 母串长度
 };

@@ -6,17 +6,16 @@ using namespace std;
 BwMatrix::BwMatrix(std::string origin) : BwtTransform(origin)
 {
     cout << "调用了BW矩阵子类" << endl;
-    bwtMatrix.resize(getLen(), string());
+    bwtMatrix.resize(len, string());
 }
 BwMatrix::~BwMatrix()
 {
 }
 void BwMatrix::buildMatrix()
 {
-    cout << "原始母串:" << getOriginalStr() << endl;
-    cout << "构建后母串:" << getNewOriginalStr() << endl;
-    string tmpStr = getNewOriginalStr();
-    for (int i = 0; i < getLen(); ++i)
+    cout << "原始母串:" << originalStr << endl;
+    string tmpStr = originalStr;
+    for (int i = 0; i < len; ++i)
     {
         bwtMatrix[i] = tmpStr;
         tmpStr = getNewstr(tmpStr, Mode::MATRIX);
@@ -27,8 +26,8 @@ void BwMatrix::buildMatrix()
     sortMatrix();
     printBwt();
     initFLStr();
-    cout << "F串:" << getFirstStr() << endl
-         << "L串:" << getLastStr() << endl;
+    cout << "F串:" << firstStr << endl
+         << "L串:" << lastStr << endl;
 }
 
 std::string BwMatrix::getNewstr(std::string str, Mode mode)
@@ -47,7 +46,7 @@ void BwMatrix::sortMatrix()
 {
     sort(bwtMatrix.begin(), bwtMatrix.end(), [&](const string &a, const string &b)
          {
-            for (int i = 0; i < getLen();++i)
+            for (int i = 0; i < len;++i)
             {
             if(a[i]<b[i])
             {
@@ -63,16 +62,16 @@ void BwMatrix::sortMatrix()
 
 void BwMatrix::initFLStr()
 {
-    for (int i = 0; i < getLen(); ++i)
+    for (int i = 0; i < len; ++i)
     {
         firstStr += bwtMatrix[i][0];
-        lastStr += bwtMatrix[i][getLen() - 1];
+        lastStr += bwtMatrix[i][len - 1];
     }
 }
 
 void BwMatrix::printBwt()
 {
-    for (int i = 0; i < getLen(); ++i)
+    for (int i = 0; i < len; ++i)
     {
         cout << bwtMatrix[i] << endl;
     }

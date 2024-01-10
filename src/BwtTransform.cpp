@@ -7,10 +7,8 @@ BwtTransform::BwtTransform(std::string origin)
 {
     cout << "调用了BwtTransform父类" << endl;
     baseMap = {{'$', 0}, {'A', 1}, {'C', 2}, {'G', 3}, {'T', 4}};
-    originalStr = origin;
-    newOriginalStr = originalStr + MARKER;
-    len = newOriginalStr.size();
-
+    originalStr = origin + MARKER;
+    len = originalStr.size();
     lastStr = string();
     firstStr = string();
 }
