@@ -21,9 +21,9 @@ class BwtTransform
 public:
     BwtTransform(std::string origin);
     virtual ~BwtTransform();
+    virtual void bwtEnCode();
     // 循环左移获取字符串
-    virtual std::string
-    getNewstr(std::string str, Mode mode);
+    virtual std::string getNewstr(std::string str, Mode mode);
     // 1.1通过BWT矩阵实现
     virtual void buildMatrix();
     // 字典序排序矩阵

@@ -4,17 +4,15 @@
 using namespace std;
 FMindex::FMindex(BwtTransform *bwt)
 {
-    bwt->buildSuffixArray();
+    matchStr = string();
     C = bwt->getPrefixsun();
     Occ.resize(bwt->getLen() + 1, vector<int>(4, 0));
-    buildOcc(bwt);
 }
 FMindex::~FMindex()
 {
 }
 void FMindex::buildOcc(BwtTransform *bwt)
 {
-    cout << "L列:" << bwt->getLastStr() << endl;
     // 获取L列每行出现哪里个字符
     for (int i = 1; i < bwt->getLen() + 1; ++i)
     {
@@ -22,7 +20,7 @@ void FMindex::buildOcc(BwtTransform *bwt)
             continue;
         Occ[i][--bwt->getBaseMap()[bwt->getLastStr()[i - 1]]]++;
     }
-    // 作累加
+    // 作累加得到Occ数组
     for (int i = 2; i < bwt->getLen() + 1; ++i)
     {
         for (int j = 0; j < 4; ++j)
@@ -30,7 +28,35 @@ void FMindex::buildOcc(BwtTransform *bwt)
             Occ[i][j] += Occ[i - 1][j];
         }
     }
-    bwt->Debug("C", C);
+}
+
+void FMindex::ExatMath(BwtTransform *bwt)
+{
+    matchStr = "ACA";
+    int num = matchStr.size();
+    char c;
+    int sp, ep, i, count = 0;
+    sp = 0, ep = bwt->getLen() - 1;
+    i = num - 1;
+
+    while (sp <= ep && i >= 0)
+    {
+        c = matchStr[i];
+        cout << "ExatMath " << ++count << ":"
+             << "sp=" << sp << " "
+             << "ep=" << ep << endl;
+        sp = C[bwt->getBaseMap()[c]] + Occ[sp][bwt->getBaseMap()[c] - 1];
+        ep = C[bwt->getBaseMap()[c]] + Occ[ep + 1][bwt->getBaseMap()[c] - 1] - 1;
+        i = i - 1;
+    }
+    cout << "--------Result--------" << endl;
+    if (sp <= ep)
+        cout << "Match Range:[" << sp << "," << ep << "]" << endl;
+    else
+        cout << "Match Fail";
+}
+void printOcc(BwtTransform *bwt, std::vector<std::vector<int>> Occ)
+{
     cout << "Occ:" << endl;
     for (int i = 0; i < bwt->getLen() + 1; ++i)
     {
@@ -41,33 +67,12 @@ void FMindex::buildOcc(BwtTransform *bwt)
         cout << endl;
     }
     cout << endl;
-
-    ExatMath(bwt);
 }
-
-void FMindex::ExatMath(BwtTransform *bwt)
+void FMindex::bwtDeCode(BwtTransform *bwt)
 {
-    string P = "ACA";
-    int num = P.size();
-    char c;
-    int sp, ep, i;
-    cout << "basemap=" << bwt->getBaseMap()[c] - 1 << endl;
-    sp = 0, ep = bwt->getLen() - 1;
-    i = num - 1;
-
-    while (sp <= ep && i >= 0)
-    {
-        c = P[i];
-        cout << "sp=" << sp << endl;
-        cout << "ep=" << ep << endl;
-        sp = C[bwt->getBaseMap()[c]] + Occ[sp][bwt->getBaseMap()[c] - 1];
-        ep = C[bwt->getBaseMap()[c]] + Occ[ep + 1][bwt->getBaseMap()[c] - 1] - 1;
-        cout << sp << " " << ep << endl;
-        i = i - 1;
-        cout << i << endl;
-    }
-    if (sp <= ep)
-        printf("精准匹配范围在区间[%d,%d]", sp, ep);
-    else
-        printf("匹配失败");
+    buildOcc(bwt);
+    // bwt->Debug("C", C);
+    // printOcc(bwt, Occ);
+    cout << "------ExatMath------" << endl;
+    ExatMath(bwt);
 }

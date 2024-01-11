@@ -12,6 +12,7 @@ public:
     void initFLStr() override;
 
     std::vector<int> getPrefixsun() override;
+    void bwtEnCode() override;
 
 private:
     std::string ary;            // 字符串

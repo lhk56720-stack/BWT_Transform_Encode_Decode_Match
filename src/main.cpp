@@ -14,8 +14,10 @@ int main()
     bwt->buildMatrix();
 #else
     BwtTransform *bwt = new SuffixArray(originalStr);
+    bwt->bwtEnCode();
 #endif
     FMindex *obj = new FMindex(bwt);
+    obj->bwtDeCode(bwt);
     auto end = clock();
     cout << "executable time:" << static_cast<double>(end - start) / CLOCKS_PER_SEC << "s" << endl;
     return 0;
