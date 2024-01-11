@@ -2,12 +2,14 @@
 #include <iostream>
 using namespace std;
 #include <set>
+#include "SuffixArray.h"
 SuffixArray::SuffixArray(std::string origin) : BwtTransform(origin)
 {
     SA.resize(len, 0);
     Rank.resize(len, 0);
     tmpArray.resize(len, 0);
     buckets.resize(5, 0);
+    prefixSun.resize(5, 0);
 }
 
 SuffixArray::~SuffixArray()
@@ -32,15 +34,19 @@ void SuffixArray::buildSuffixArray()
     // 桶转换为前缀和数组
     for (int i = 1; i < 5; ++i)
     {
+        prefixSun[i] = prefixSun[i - 1] + buckets[i - 1];
+    }
+    for (int i = 1; i < 5; ++i)
+    {
         buckets[i] += buckets[i - 1];
     }
-    Debug("前缀和", buckets);
+    Debug("前缀和", prefixSun);
     for (int i = len - 1; i >= 0; i--)
         SA[--buckets[Rank[i]]] = i;
-
+    buckets.clear();
     Debug("SA", SA);
     // 倍增算法
-    int m = 27;
+    int m = 5;
     for (int j = 1, p = 1; p < len; j << 1, m = p)
     {
         // 对第二关键字排序
@@ -57,7 +63,6 @@ void SuffixArray::buildSuffixArray()
             buckets[Rank[i]]++;
         for (int i = 1; i < m; i++)
             buckets[i] += buckets[i - 1];
-        // buckets[buckets[i]]++;
         for (int i = len - 1; i >= 0; i--)
             SA[--buckets[Rank[tmpArray[i]]]] = tmpArray[i]; // 更新sa数组
 
@@ -80,15 +85,14 @@ void SuffixArray::initFLStr()
     for (int i = 0; i < len; ++i)
     {
         firstStr += originalStr[SA[i]];
-        lastStr += originalStr[Rank[i]];
+        if (SA[i] != 0)
+            lastStr += originalStr[SA[i] - 1];
+        else
+            lastStr += '$';
     }
 }
-void SuffixArray::Debug(string str, vector<int> &arr)
+
+std::vector<int> SuffixArray::getPrefixsun()
 {
-    cout << str << ":";
-    for (int i = 0; i < arr.size(); ++i)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    return prefixSun;
 }

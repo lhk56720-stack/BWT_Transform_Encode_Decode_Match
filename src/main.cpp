@@ -1,6 +1,7 @@
 #include "../include/BwtTransform.h"
 #include "../include/BwMatrix.h"
 #include "../include/SuffixArray.h"
+#include "../include/FMindex.h"
 #include <iostream>
 using namespace std;
 int main()
@@ -9,12 +10,12 @@ int main()
     auto start = clock();
 #if 0
     // BW矩阵
-    BwtTransform *bwt = new BwMatrix(originalStr);
+    BwtTransform *bwt = new BwMatrix(origion);
     bwt->buildMatrix();
 #else
     BwtTransform *bwt = new SuffixArray(originalStr);
-    bwt->buildSuffixArray();
 #endif
+    FMindex *obj = new FMindex(bwt);
     auto end = clock();
     cout << "executable time:" << static_cast<double>(end - start) / CLOCKS_PER_SEC << "s" << endl;
     return 0;

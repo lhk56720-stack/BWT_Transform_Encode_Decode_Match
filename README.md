@@ -33,6 +33,7 @@
 ![Alt text](image.png)
 SA
 ![Alt text](image-1.png)
+![Alt text](image-2.png)
 后缀数组相较于BW变化可以不用将矩阵求出就可以得到变换后矩阵的首列和尾列
 
 

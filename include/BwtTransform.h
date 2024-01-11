@@ -35,10 +35,22 @@ public:
 
     // 1.2通过后缀数列实现
     virtual void buildSuffixArray();
+    virtual std::vector<int> getPrefixsun();
 
+    // Debug函数
+    void Debug(std::string str, std::vector<int> &arr);
+
+    inline std::unordered_map<char, int> getBaseMap()
+    {
+        return baseMap;
+    }
     inline std::string getOriginalStr()
     {
         return originalStr;
+    }
+    inline std::string getLastStr()
+    {
+        return lastStr;
     }
     inline int getLen()
     {
@@ -47,8 +59,8 @@ public:
 
 protected:
     std::unordered_map<char, int> baseMap;
+    std::string originalStr; // 母串
     std::string lastStr;     // 尾列
     std::string firstStr;    // 首列
-    std::string originalStr; // 母串
     int len;                 // 母串长度
 };
