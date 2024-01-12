@@ -12,7 +12,7 @@ public:
     // 构建OCC
     void buildOcc(BwtTransform *bwt);
     // 精准匹配
-    void ExatMath(BwtTransform *bwt);
+    void ExatMath(BwtTransform *bwt, std::string line);
     void bwtDeCode(BwtTransform *bwt);
 
 private:

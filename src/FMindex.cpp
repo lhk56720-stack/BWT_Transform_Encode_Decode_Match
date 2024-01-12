@@ -1,11 +1,12 @@
 #include "../include/FMindex.h"
 #include <iostream>
 #include "FMindex.h"
+#include <fstream>
 using namespace std;
 FMindex::FMindex(BwtTransform *bwt)
 {
     matchStr = string();
-    C = bwt->getPrefixsun();
+    C = bwt->getPrefixsum();
     Occ.resize(bwt->getLen() + 1, vector<int>(4, 0));
 }
 FMindex::~FMindex()
@@ -30,9 +31,10 @@ void FMindex::buildOcc(BwtTransform *bwt)
     }
 }
 
-void FMindex::ExatMath(BwtTransform *bwt)
+void FMindex::ExatMath(BwtTransform *bwt, string line)
 {
-    matchStr = "ACA";
+    matchStr = line;
+    cout << "matchStr=" << matchStr << endl;
     int num = matchStr.size();
     char c;
     int sp, ep, i, count = 0;
@@ -53,7 +55,7 @@ void FMindex::ExatMath(BwtTransform *bwt)
     if (sp <= ep)
         cout << "Match Range:[" << sp << "," << ep << "]" << endl;
     else
-        cout << "Match Fail";
+        cout << "Match Fail" << endl;
 }
 void printOcc(BwtTransform *bwt, std::vector<std::vector<int>> Occ)
 {
@@ -74,5 +76,16 @@ void FMindex::bwtDeCode(BwtTransform *bwt)
     // bwt->Debug("C", C);
     // printOcc(bwt, Occ);
     cout << "------ExatMath------" << endl;
-    ExatMath(bwt);
+    ifstream ifs("../genePool/match.txt");
+    if (!ifs.is_open())
+    {
+        perror("match.txt open fail");
+        exit(0);
+    }
+    string line;
+    while (getline(ifs, line))
+    {
+        ExatMath(bwt, line);
+    }
+    ifs.close();
 }

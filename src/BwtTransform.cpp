@@ -45,7 +45,7 @@ void BwtTransform::buildSuffixArray()
 {
 }
 
-vector<int> BwtTransform::getPrefixsun()
+vector<int> BwtTransform::getPrefixsum()
 {
 }
 
