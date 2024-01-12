@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 #include <algorithm>
-BwtTransform::BwtTransform(std::string origin)
+BwtTransform::BwtTransform(string origin)
 {
     baseMap = {{'$', 0}, {'A', 1}, {'C', 2}, {'G', 3}, {'T', 4}};
     originalStr = origin + MARKER;
@@ -20,9 +20,9 @@ void BwtTransform::bwtEnCode()
 {
 }
 
-std::string BwtTransform::getNewstr(std::string str, Mode mode)
+string BwtTransform::getNewstr(string str, Mode mode)
 {
-    return std::string();
+    return string();
 }
 
 void BwtTransform::buildMatrix()
@@ -47,13 +47,15 @@ void BwtTransform::buildSuffixArray()
 
 vector<int> BwtTransform::getPrefixsum()
 {
+    return vector<int>();
 }
 
 vector<int> BwtTransform::getSA()
 {
+    return vector<int>();
 }
 
-void BwtTransform::Debug(std::string str, std::vector<int> &arr)
+void BwtTransform::Debug(string str, vector<int> &arr)
 {
     cout << str << ":";
     for (int i = 0; i < arr.size(); ++i)

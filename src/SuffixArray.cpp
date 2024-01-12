@@ -2,7 +2,7 @@
 #include <iostream>
 #include "SuffixArray.h"
 using namespace std;
-SuffixArray::SuffixArray(std::string origin) : BwtTransform(origin)
+SuffixArray::SuffixArray(string origin) : BwtTransform(origin)
 {
     SA.resize(len, 0);
     Rank.resize(len, 0);
@@ -13,6 +13,14 @@ SuffixArray::SuffixArray(std::string origin) : BwtTransform(origin)
 
 SuffixArray::~SuffixArray()
 {
+}
+vector<int> SuffixArray::getSA()
+{
+    return SA;
+}
+vector<int> SuffixArray::getPrefixsum()
+{
+    return prefixSum;
 }
 bool cmp(int *r, int a, int b, int len)
 {
@@ -68,7 +76,7 @@ void SuffixArray::buildSuffixArray()
         for (int i = 1; i < len; i++)
             Rank.at(SA.at(i)) = cmp(tmpArray.data(), SA.at(i - 1), SA.at(i), j) ? p - 1 : p++;
     }
-    Debug("prefixSum3", prefixSum);
+    buckets.reserve(5);
 }
 void SuffixArray::initFLStr()
 {
@@ -82,20 +90,11 @@ void SuffixArray::initFLStr()
     }
 }
 
-vector<int> SuffixArray::getSA()
-{
-    return SA;
-}
-vector<int> SuffixArray::getPrefixsum()
-{
-    return prefixSum;
-}
 void SuffixArray::bwtEnCode()
 {
     cout << "母串:" << originalStr << endl;
     buildSuffixArray();
     cout << "-----SuffixArray Result-----" << endl;
-    Debug("prefixSum1", prefixSum);
     Debug("SA", SA);
     Debug("RANK", Rank);
     cout << "----------L&F----------" << endl;

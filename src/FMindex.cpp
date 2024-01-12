@@ -8,6 +8,7 @@ FMindex::FMindex(BwtTransform *bwt)
     matchStr = string();
     C = bwt->getPrefixsum();
     Occ.resize(bwt->getLen() + 1, vector<int>(4, 0));
+    sp = ep = 0;
 }
 FMindex::~FMindex()
 {
@@ -57,7 +58,7 @@ void FMindex::ExatMatch(BwtTransform *bwt, string line)
     else
         cout << "Match Fail" << endl;
 }
-void printOcc(BwtTransform *bwt, std::vector<std::vector<int>> Occ)
+void printOcc(BwtTransform *bwt, vector<vector<int>> Occ)
 {
     cout << "Occ:" << endl;
     for (int i = 0; i < bwt->getLen() + 1; ++i)
@@ -70,34 +71,27 @@ void printOcc(BwtTransform *bwt, std::vector<std::vector<int>> Occ)
     }
     cout << endl;
 }
-void FMindex::bwtDeCode(BwtTransform *bwt)
+void FMindex::bwtDeCode(BwtTransform *bwt, FileManager &fileManger)
 {
     buildOcc(bwt);
     // bwt->Debug("C", C);
     // printOcc(bwt, Occ);
-    cout << "------ExatMatch------" << endl;
+    cout << "------ExatMatch Process------" << endl;
     ifstream ifs("../genePool/match.txt");
     if (!ifs.is_open())
     {
         perror("match.txt open fail");
         exit(0);
     }
-    string line;
-    int count = 0;
+    string line, path;
+    path = "../genePool/answer.txt";
+    ofstream ofs(path, ios::out);
     while (getline(ifs, line))
     {
         ExatMatch(bwt, line);
-        // 将答案写入文件中
-        ofstream ofs("../genePool/answer.txt", ios::app);
-        if (!ofs.is_open())
-        {
-            perror("answer.txt open fail");
-            exit(0);
-        }
-        ofs << "-----Match" << ++count << "-----" << endl
-            << line << endl
-            << "F Range:[" << sp << "," << ep << "]" << endl
-            << "original Range:[" << bwt->getSA()[sp] << "," << bwt->getSA()[ep] << "]" << endl;
+        // 将匹配结果写入文件中
+        fileManger.writeFile(path, ofs, line, sp, ep, bwt);
     }
+    ofs.close();
     ifs.close();
 }

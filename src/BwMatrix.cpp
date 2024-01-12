@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 #include <algorithm>
-BwMatrix::BwMatrix(std::string origin) : BwtTransform(origin)
+BwMatrix::BwMatrix(string origin) : BwtTransform(origin)
 {
     cout << "调用了BW矩阵子类" << endl;
     bwtMatrix.resize(len, string());
@@ -30,7 +30,7 @@ void BwMatrix::buildMatrix()
          << "L串:" << lastStr << endl;
 }
 
-std::string BwMatrix::getNewstr(std::string str, Mode mode)
+string BwMatrix::getNewstr(string str, Mode mode)
 {
     if (mode == Mode::MATRIX)
     {

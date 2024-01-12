@@ -1,480 +1,150 @@
 -----Match1-----
-CGTCTCGATT
-L Range:[415,415]
-original Range:[0,0]
------Match2-----
-GCGCCGAGAA
-L Range:[605,605]
-original Range:[10,10]
------Match3-----
-CACTGGGCCC
-L Range:[273,273]
-original Range:[20,20]
------Match4-----
-TGGGTCTACG
-L Range:[934,934]
-original Range:[30,30]
------Match5-----
-TTTCATGACG
-L Range:[1013,1013]
-original Range:[40,40]
------Match6-----
-TGCAATGGAT
-L Range:[901,901]
-original Range:[50,50]
------Match7-----
-TTACATGTTT
-L Range:[963,963]
-original Range:[60,60]
------Match8-----
-ACGTGCGACG
-L Range:[109,109]
-original Range:[70,70]
------Match9-----
-CAAGAACCGC
-L Range:[261,261]
-original Range:[80,80]
------Match10-----
-AAAACAGGGC
-L Range:[1,1]
-original Range:[90,90]
------Match11-----
 CGGGCTTGTA
-L Range:[404,404]
+F Range:[1648,1648]
 original Range:[100,100]
------Match12-----
+
+-----Match2-----
 AATAGTTTAC
-L Range:[60,60]
+F Range:[197,197]
 original Range:[110,110]
------Match13-----
+
+-----Match3-----
 ATCTTCTCTC
-L Range:[219,219]
+F Range:[862,862]
 original Range:[120,120]
------Match14-----
+
+-----Match4-----
 CATTGTGCCA
-L Range:[311,311]
+F Range:[1231,1231]
 original Range:[130,130]
------Match15-----
+
+-----Match5-----
 ACATCCGAAC
-L Range:[73,73]
+F Range:[287,287]
 original Range:[140,140]
------Match16-----
+
+-----Match6-----
 ATACGTGCTC
-L Range:[204,204]
+F Range:[788,788]
 original Range:[150,150]
------Match17-----
+
+-----Match7-----
 CAAATGTAGA
-L Range:[255,255]
+F Range:[1006,1006]
 original Range:[160,160]
------Match18-----
+
+-----Match8-----
 AGCACCCTCA
-L Range:[150,150]
+F Range:[571,571]
 original Range:[170,170]
------Match19-----
+
+-----Match9-----
 ACTACCGTGC
-L Range:[114,114]
+F Range:[438,438]
 original Range:[180,180]
------Match20-----
-TTCTGACCAT
-L Range:[989,989]
-original Range:[190,190]
------Match1-----
-CGTCTCGATT
-L Range:[429801,429802]
-original Range:[0,690795]
------Match2-----
-GCGCCGAGAA
-L Range:[599464,599466]
-original Range:[10,990594]
------Match3-----
-CACTGGGCCC
-L Range:[279816,279818]
-original Range:[771318,20]
------Match4-----
-TGGGTCTACG
-L Range:[917847,917847]
-original Range:[30,30]
------Match5-----
-TTTCATGACG
-L Range:[989421,989421]
-original Range:[40,40]
------Match6-----
-TGCAATGGAT
-L Range:[892018,892019]
-original Range:[506220,50]
------Match7-----
-TTACATGTTT
-L Range:[942863,942864]
-original Range:[60,156582]
------Match8-----
-ACGTGCGACG
-L Range:[107938,107939]
-original Range:[70,553111]
------Match9-----
-CAAGAACCGC
-L Range:[257941,257941]
-original Range:[80,80]
+
 -----Match10-----
-AAAACAGGGC
-L Range:[1128,1131]
-original Range:[484594,483012]
------Match11-----
-CGGGCTTGTA
-L Range:[416497,416499]
-original Range:[100,220177]
------Match12-----
-AATAGTTTAC
-L Range:[50075,50076]
-original Range:[110,262311]
------Match13-----
-ATCTTCTCTC
-L Range:[218416,218417]
-original Range:[120,294316]
------Match14-----
-CATTGTGCCA
-L Range:[311322,311323]
-original Range:[130,638496]
------Match15-----
-ACATCCGAAC
-L Range:[75858,75858]
-original Range:[140,140]
------Match16-----
-ATACGTGCTC
-L Range:[194529,194531]
-original Range:[787056,150]
------Match17-----
-CAAATGTAGA
-L Range:[253577,253580]
-original Range:[160,765234]
------Match18-----
-AGCACCCTCA
-L Range:[141918,141921]
-original Range:[170,531875]
------Match19-----
-ACTACCGTGC
-L Range:[110905,110906]
-original Range:[184135,180]
------Match20-----
 TTCTGACCAT
-L Range:[967247,967247]
+F Range:[3874,3874]
 original Range:[190,190]
------Match1-----
-CGTCTCGATT
-L Range:[4362,4362]
-original Range:[0,0]
------Match2-----
-GCGCCGAGAA
-L Range:[6020,6020]
-original Range:[10,10]
------Match3-----
-CACTGGGCCC
-L Range:[2852,2852]
-original Range:[20,20]
------Match4-----
-TGGGTCTACG
-L Range:[9206,9206]
-original Range:[30,30]
------Match5-----
-TTTCATGACG
-L Range:[9912,9912]
-original Range:[40,40]
------Match6-----
-TGCAATGGAT
-L Range:[8961,8961]
-original Range:[50,50]
------Match7-----
-TTACATGTTT
-L Range:[9472,9472]
-original Range:[60,60]
------Match8-----
-ACGTGCGACG
-L Range:[1109,1109]
-original Range:[70,70]
------Match9-----
-CAAGAACCGC
-L Range:[2640,2640]
-original Range:[80,80]
------Match10-----
-AAAACAGGGC
-L Range:[8,8]
-original Range:[90,90]
+
 -----Match11-----
-CGGGCTTGTA
-L Range:[4222,4222]
-original Range:[100,100]
+AACCTGGAAG
+F Range:[84,84]
+original Range:[200,200]
+
 -----Match12-----
-AATAGTTTAC
-L Range:[514,514]
-original Range:[110,110]
+AATTTAACGC
+F Range:[237,237]
+original Range:[210,210]
+
 -----Match13-----
-ATCTTCTCTC
-L Range:[2225,2225]
-original Range:[120,120]
+GCATAGTCGG
+F Range:[2305,2305]
+original Range:[220,220]
+
 -----Match14-----
-CATTGTGCCA
-L Range:[3183,3183]
-original Range:[130,130]
+TGGATCCAAC
+F Range:[3643,3643]
+original Range:[230,230]
+
 -----Match15-----
-ACATCCGAAC
-L Range:[785,785]
-original Range:[140,140]
+GACCGAAGCG
+F Range:[2079,2079]
+original Range:[240,240]
+
 -----Match16-----
-ATACGTGCTC
-L Range:[1995,1995]
-original Range:[150,150]
+TTTGGTAAAG
+F Range:[3987,3987]
+original Range:[250,250]
+
 -----Match17-----
-CAAATGTAGA
-L Range:[2593,2593]
-original Range:[160,160]
+GTAAGGATGA
+F Range:[2772,2772]
+original Range:[260,260]
+
 -----Match18-----
-AGCACCCTCA
-L Range:[1458,1458]
-original Range:[170,170]
+AAACCGACTC
+F Range:[14,14]
+original Range:[270,270]
+
 -----Match19-----
-ACTACCGTGC
-L Range:[1133,1133]
-original Range:[180,180]
+TGTGACCTCA
+F Range:[3719,3719]
+original Range:[280,280]
+
 -----Match20-----
-TTCTGACCAT
-L Range:[9707,9707]
-original Range:[190,190]
------Match1-----
-CGTCTCGATT
-L Range:[43063,43063]
-original Range:[0,0]
------Match2-----
-GCGCCGAGAA
-L Range:[60100,60100]
-original Range:[10,10]
------Match3-----
-CACTGGGCCC
-L Range:[27987,27987]
-original Range:[20,20]
------Match4-----
-TGGGTCTACG
-L Range:[91766,91766]
-original Range:[30,30]
------Match5-----
-TTTCATGACG
-L Range:[98926,98926]
-original Range:[40,40]
------Match6-----
-TGCAATGGAT
-L Range:[89209,89209]
-original Range:[50,50]
------Match7-----
-TTACATGTTT
-L Range:[94268,94268]
-original Range:[60,60]
------Match8-----
-ACGTGCGACG
-L Range:[10727,10727]
-original Range:[70,70]
------Match9-----
-CAAGAACCGC
-L Range:[25815,25815]
-original Range:[80,80]
------Match10-----
-AAAACAGGGC
-L Range:[111,111]
-original Range:[90,90]
------Match11-----
-CGGGCTTGTA
-L Range:[41732,41732]
-original Range:[100,100]
------Match12-----
-AATAGTTTAC
-L Range:[4916,4916]
-original Range:[110,110]
------Match13-----
-ATCTTCTCTC
-L Range:[21898,21898]
-original Range:[120,120]
------Match14-----
-CATTGTGCCA
-L Range:[31210,31210]
-original Range:[130,130]
------Match15-----
-ACATCCGAAC
-L Range:[7519,7519]
-original Range:[140,140]
------Match16-----
-ATACGTGCTC
-L Range:[19472,19472]
-original Range:[150,150]
------Match17-----
-CAAATGTAGA
-L Range:[25389,25389]
-original Range:[160,160]
------Match18-----
-AGCACCCTCA
-L Range:[14182,14182]
-original Range:[170,170]
------Match19-----
-ACTACCGTGC
-L Range:[11031,11031]
-original Range:[180,180]
------Match20-----
-TTCTGACCAT
-L Range:[96693,96693]
-original Range:[190,190]
------Match1-----
-CGTCTCGATT
-L Range:[429801,429802]
-original Range:[0,690795]
------Match2-----
-GCGCCGAGAA
-L Range:[599464,599466]
-original Range:[10,990594]
------Match3-----
-CACTGGGCCC
-L Range:[279816,279818]
-original Range:[771318,20]
------Match4-----
-TGGGTCTACG
-L Range:[917847,917847]
-original Range:[30,30]
------Match5-----
-TTTCATGACG
-L Range:[989421,989421]
-original Range:[40,40]
------Match6-----
-TGCAATGGAT
-L Range:[892018,892019]
-original Range:[506220,50]
------Match7-----
-TTACATGTTT
-L Range:[942863,942864]
-original Range:[60,156582]
------Match8-----
-ACGTGCGACG
-L Range:[107938,107939]
-original Range:[70,553111]
------Match9-----
-CAAGAACCGC
-L Range:[257941,257941]
-original Range:[80,80]
------Match10-----
-AAAACAGGGC
-L Range:[1128,1131]
-original Range:[484594,483012]
------Match11-----
-CGGGCTTGTA
-L Range:[416497,416499]
-original Range:[100,220177]
------Match12-----
-AATAGTTTAC
-L Range:[50075,50076]
-original Range:[110,262311]
------Match13-----
-ATCTTCTCTC
-L Range:[218416,218417]
-original Range:[120,294316]
------Match14-----
-CATTGTGCCA
-L Range:[311322,311323]
-original Range:[130,638496]
------Match15-----
-ACATCCGAAC
-L Range:[75858,75858]
-original Range:[140,140]
------Match16-----
-ATACGTGCTC
-L Range:[194529,194531]
-original Range:[787056,150]
------Match17-----
-CAAATGTAGA
-L Range:[253577,253580]
-original Range:[160,765234]
------Match18-----
-AGCACCCTCA
-L Range:[141918,141921]
-original Range:[170,531875]
------Match19-----
-ACTACCGTGC
-L Range:[110905,110906]
-original Range:[184135,180]
------Match20-----
-TTCTGACCAT
-L Range:[967247,967247]
-original Range:[190,190]
------Match1-----
-CGTCTCGATT
-L Range:[412,412]
-original Range:[0,0]
------Match2-----
-GCGCCGAGAA
-L Range:[596,596]
-original Range:[10,10]
------Match3-----
-CACTGGGCCC
-L Range:[270,270]
-original Range:[20,20]
------Match4-----
-TGGGTCTACG
-L Range:[914,914]
-original Range:[30,30]
------Match5-----
-TTTCATGACG
-L Range:[989,989]
-original Range:[40,40]
------Match6-----
-TGCAATGGAT
-L Range:[882,882]
-original Range:[50,50]
------Match7-----
-TTACATGTTT
-L Range:[941,941]
-original Range:[60,60]
------Match8-----
-ACGTGCGACG
-L Range:[109,109]
-original Range:[70,70]
------Match9-----
-CAAGAACCGC
-L Range:[258,258]
-original Range:[80,80]
------Match10-----
-AAAACAGGGC
-L Range:[1,1]
-original Range:[90,90]
------Match11-----
-CGGGCTTGTA
-L Range:[400,400]
-original Range:[100,100]
------Match12-----
-AATAGTTTAC
-L Range:[59,59]
-original Range:[110,110]
------Match13-----
-ATCTTCTCTC
-L Range:[216,216]
-original Range:[120,120]
------Match14-----
-CATTGTGCCA
-L Range:[308,308]
-original Range:[130,130]
------Match15-----
-ACATCCGAAC
-L Range:[72,72]
-original Range:[140,140]
------Match16-----
-ATACGTGCTC
-L Range:[201,201]
-original Range:[150,150]
------Match17-----
-CAAATGTAGA
-L Range:[252,252]
-original Range:[160,160]
------Match18-----
-AGCACCCTCA
-L Range:[149,149]
-original Range:[170,170]
------Match19-----
-ACTACCGTGC
-L Range:[113,113]
-original Range:[180,180]
------Match20-----
-TTCTGACCAT
-L Range:[967,967]
-original Range:[190,190]
+CTTAGCGGAA
+F Range:[1930,1930]
+original Range:[290,290]
+
+-----Match21-----
+GAAGACTACG
+F Range:[2019,2019]
+original Range:[300,300]
+
+-----Match22-----
+CAAACTAGGC
+F Range:[1000,1000]
+original Range:[310,310]
+
+-----Match23-----
+GTTATCCCTA
+F Range:[2965,2965]
+original Range:[320,320]
+
+-----Match24-----
+CCACTACGAG
+F Range:[1266,1266]
+original Range:[330,330]
+
+-----Match25-----
+AAGTATGAAA
+F Range:[173,173]
+original Range:[340,340]
+
+-----Match26-----
+AGTTGCAGGT
+F Range:[756,756]
+original Range:[350,350]
+
+-----Match27-----
+GGAGTTCAAC
+F Range:[2555,2555]
+original Range:[360,360]
+
+-----Match28-----
+GACTTAGCAG
+F Range:[2129,2129]
+original Range:[370,370]
+
+-----Match29-----
+CATTTCATTG
+F Range:[1236,1236]
+original Range:[380,380]
+
+-----Match30-----
+GCAGGGATGA
+F Range:[2301,2301]
+original Range:[390,390]
+

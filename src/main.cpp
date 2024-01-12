@@ -8,20 +8,21 @@
 #include <random>
 #include <string.h>
 using namespace std;
-int MAX = 1024 * 100;
-void createGenePool()
+int MAX = 0;
+// 选择是否重新随机生成基因库母串，是则指定串长
+void iscreateGenePool()
 {
     bool flag = false;
-    char confirm;
     int number;
+    char *confirm; // 使用字符数组存储输入的字符串
+    cout << "Whether to randomly generate the parent string ? (y/n): " << endl;
     while (true)
     {
         if (flag)
             break;
-        cout << "Whether to randomly generate the parent string ? (y/n): " << endl;
         cin >> confirm;
-        confirm = tolower(confirm); // 将字符转换为小写以简化判断
-        if (confirm == 'y')
+        // 不区分大小写地比较输入
+        if (strcmp(confirm, "y") == 0 || strcmp(confirm, "Y") == 0)
         {
             while (true)
             {
@@ -35,51 +36,31 @@ void createGenePool()
                 else
                 {
                     // 如果没有输入有效数字，则提示并清理输入流
-                    cout << "Invalid input! Please enter a positive integer:\n";
+                    cout << "Invalid input! \n";
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 }
             }
         }
-        else if (confirm == 'n')
+        else if (strcmp(confirm, "n") == 0 || strcmp(confirm, "N") == 0)
         {
             return;
         }
         else
         {
-            cout << "Invalid input!Please input (y/n):\n";
-            cin.clear();
-            // 需要忽略掉错误输入后的剩余输入，包括换行符
-            cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Invalid input!" << endl
+                 << "Please enter a positive integer:";
         }
     }
-}
-
-void createMatchStr()
-{
-    ofstream ofs("../genePool/match.txt", ios::out);
-    if (!ofs.is_open())
-    {
-        perror("match.txt open fail");
-        exit(0);
-    }
-    unordered_map<int, char> charMap = {{0, 'A'}, {1, 'T'}, {2, 'G'}, {3, 'C'}};
-    for (int i = 0; i < 20; ++i) // 数据行数
-    {
-        for (int j = 0; j < 10; ++j) // 每行数据的数据长度
-        {
-            ofs << charMap[rand() % 4];
-        }
-        ofs << endl;
-    }
-    ofs.close();
 }
 int main()
 {
     FileManager fileManger;
-    createGenePool();
+    // 指定母串长度需要大于子串长度
+    iscreateGenePool();
     fileManger.writeFile("../genePool/original.txt", MAX);
-    // createMatchStr();
+    // 指定匹配串的行数和每行字符串长度
+    // fileManger.writeFile("../genePool/match.txt", 30, 10);
     string originalStr = string();
     fileManger.readFile("../genePool/original.txt", originalStr);
     auto start = clock();
@@ -88,11 +69,12 @@ int main()
         BwtTransform *bwt = new BwMatrix(origion);
         bwt->buildMatrix();
 #else
+    // 后缀数组
     BwtTransform *bwt = new SuffixArray(originalStr);
     bwt->bwtEnCode();
 #endif
     FMindex *obj = new FMindex(bwt);
-    obj->bwtDeCode(bwt);
+    obj->bwtDeCode(bwt, fileManger);
     auto end = clock();
     cout << "executable time:" << static_cast<double>(end - start) / CLOCKS_PER_SEC << "s" << endl;
     return 0;
