@@ -1,5 +1,6 @@
 #include "../include/SuffixArray.h"
 #include <iostream>
+#include "SuffixArray.h"
 using namespace std;
 SuffixArray::SuffixArray(std::string origin) : BwtTransform(origin)
 {
@@ -81,7 +82,11 @@ void SuffixArray::initFLStr()
     }
 }
 
-std::vector<int> SuffixArray::getPrefixsum()
+vector<int> SuffixArray::getSA()
+{
+    return SA;
+}
+vector<int> SuffixArray::getPrefixsum()
 {
     return prefixSum;
 }

@@ -10,7 +10,7 @@ public:
     void buildSuffixArray() override;
     // 获取首串和尾串
     void initFLStr() override;
-
+    std::vector<int> getSA() override;
     std::vector<int> getPrefixsum() override;
     void bwtEnCode() override;
 

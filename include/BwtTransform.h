@@ -36,6 +36,7 @@ public:
     // 1.2通过后缀数列实现
     virtual void buildSuffixArray();
     virtual std::vector<int> getPrefixsum();
+    virtual std::vector<int> getSA();
 
     // Debug函数
     void Debug(std::string str, std::vector<int> &arr);

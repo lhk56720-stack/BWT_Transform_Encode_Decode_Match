@@ -2,6 +2,7 @@
 #include "../include/BwMatrix.h"
 #include "../include/SuffixArray.h"
 #include "../include/FMindex.h"
+#include "../include/FileManager.h"
 #include <iostream>
 #include <fstream>
 #include <random>
@@ -52,18 +53,6 @@ void createGenePool()
             cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
         }
     }
-    unordered_map<int, char> charMap = {{0, 'A'}, {1, 'T'}, {2, 'G'}, {3, 'C'}};
-    fstream fs("../genePool/original.txt", ios::out);
-    if (!fs.is_open())
-    {
-        perror("../genePool/original.txt open fail");
-        exit(0);
-    }
-    for (int i = 0; i < MAX; ++i)
-    {
-        fs << charMap[rand() % 4];
-    }
-    fs.close();
 }
 
 void createMatchStr()
@@ -87,26 +76,17 @@ void createMatchStr()
 }
 int main()
 {
+    FileManager fileManger;
     createGenePool();
-    createMatchStr();
-    ifstream ifs("../genePool/original.txt");
-    if (!ifs.is_open())
-    {
-        perror("original.txt open fail");
-        exit(0);
-    }
+    fileManger.writeFile("../genePool/original.txt", MAX);
+    // createMatchStr();
     string originalStr = string();
-    char ch;
-    while (ifs.get(ch))
-    {
-        originalStr += ch;
-    }
-    ifs.close();
+    fileManger.readFile("../genePool/original.txt", originalStr);
     auto start = clock();
 #if 0
-    // BW矩阵
-    BwtTransform *bwt = new BwMatrix(origion);
-    bwt->buildMatrix();
+        // BW矩阵
+        BwtTransform *bwt = new BwMatrix(origion);
+        bwt->buildMatrix();
 #else
     BwtTransform *bwt = new SuffixArray(originalStr);
     bwt->bwtEnCode();

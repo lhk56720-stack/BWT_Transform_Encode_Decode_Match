@@ -49,6 +49,10 @@ vector<int> BwtTransform::getPrefixsum()
 {
 }
 
+vector<int> BwtTransform::getSA()
+{
+}
+
 void BwtTransform::Debug(std::string str, std::vector<int> &arr)
 {
     cout << str << ":";
