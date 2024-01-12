@@ -10,10 +10,13 @@ using namespace std;
 int MAX = 1024 * 100;
 void createGenePool()
 {
+    bool flag = false;
     char confirm;
     int number;
     while (true)
     {
+        if (flag)
+            break;
         cout << "Whether to randomly generate the parent string ? (y/n): " << endl;
         cin >> confirm;
         confirm = tolower(confirm); // 将字符转换为小写以简化判断
@@ -24,6 +27,7 @@ void createGenePool()
                 cout << "Please input a positive integer:";
                 if (cin >> number && number > 0)
                 {
+                    flag = true;
                     MAX = number;
                     break;
                 }
@@ -48,12 +52,11 @@ void createGenePool()
             cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
         }
     }
-
     unordered_map<int, char> charMap = {{0, 'A'}, {1, 'T'}, {2, 'G'}, {3, 'C'}};
-    fstream fs("original.txt", ios::out);
+    fstream fs("../genePool/original.txt", ios::out);
     if (!fs.is_open())
     {
-        perror("original.txt open fail");
+        perror("../genePool/original.txt open fail");
         exit(0);
     }
     for (int i = 0; i < MAX; ++i)

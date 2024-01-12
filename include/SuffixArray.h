@@ -21,5 +21,4 @@ private:
     std::vector<int> tmpArray;  // 用于基数排序的辅助数组
     std::vector<int> buckets;   // 存储字符种类
     std::vector<int> prefixSum; // 存储字符第一次出现在F列中的位置
-    int MM[1024];
 };
