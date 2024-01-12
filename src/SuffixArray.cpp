@@ -1,6 +1,5 @@
 #include "../include/SuffixArray.h"
 #include <iostream>
-#include "SuffixArray.h"
 using namespace std;
 SuffixArray::SuffixArray(string origin) : BwtTransform(origin)
 {

@@ -1,6 +1,5 @@
 #include "../include/FMindex.h"
 #include <iostream>
-#include "FMindex.h"
 #include <fstream>
 using namespace std;
 FMindex::FMindex(BwtTransform *bwt)

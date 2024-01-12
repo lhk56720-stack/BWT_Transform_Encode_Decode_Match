@@ -1,5 +1,4 @@
 #include "../include/BwtTransform.h"
-#include "BwtTransform.h"
 #include <iostream>
 using namespace std;
 #include <algorithm>

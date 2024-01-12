@@ -1,6 +1,5 @@
 #include "../include/FileManager.h"
 #include <iostream>
-#include "FileManager.h"
 using namespace std;
 FileManager::FileManager() : charMap{{0, 'A'}, {1, 'T'}, {2, 'G'}, {3, 'C'}}
 {
