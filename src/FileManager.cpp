@@ -3,13 +3,16 @@
 using namespace std;
 FileManager::FileManager() : charMap{{0, 'A'}, {1, 'T'}, {2, 'G'}, {3, 'C'}}
 {
+    originalPath = "../genePool/original.txt";
+    matchPath = "../genePool/match.txt";
+    answerPath = "../genePool/answer.txt";
 }
-void FileManager::readFile(string path, string &buf)
+void FileManager::readFile(string &buf)
 {
-    ifstream ifs(path);
+    ifstream ifs(originalPath);
     if (!ifs.is_open())
     {
-        perror((getfileName(path) + "open fail!").c_str());
+        perror((getfileName(originalPath) + "open fail!").c_str());
         exit(0);
     }
     buf = string();
@@ -21,12 +24,12 @@ void FileManager::readFile(string path, string &buf)
     ifs.close();
 }
 
-void FileManager::writeFile(string path, int Max)
+void FileManager::writeFile(int Max)
 {
-    ofstream ofs(path, ios::out);
+    ofstream ofs(originalPath, ios::out);
     if (!ofs.is_open())
     {
-        perror((getfileName(path) + "open fail!").c_str());
+        perror((getfileName(originalPath) + "open fail!").c_str());
         exit(0);
     }
     for (int i = 0; i < Max; ++i)
@@ -35,12 +38,12 @@ void FileManager::writeFile(string path, int Max)
     }
     ofs.close();
 }
-void FileManager::writeFile(string path, int m, int n)
+void FileManager::writeFile(int m, int n)
 {
-    ofstream ofs(path, ios::out);
+    ofstream ofs(matchPath, ios::out);
     if (!ofs.is_open())
     {
-        perror("match.txt open fail");
+        perror((getfileName(matchPath) + "open fail!").c_str());
         exit(0);
     }
     for (int i = 0; i < m; ++i) // 数据行数
@@ -53,12 +56,12 @@ void FileManager::writeFile(string path, int m, int n)
     }
     ofs.close();
 }
-void FileManager::writeFile(string path, ofstream &ofs, string line, int sp, int ep, BwtTransform *bwt)
+void FileManager::writeFile(ofstream &ofs, string line, int sp, int ep, BwtTransform *bwt)
 {
     static int count = 0;
     if (!ofs.is_open())
     {
-        perror((getfileName(path) + "open fail!").c_str());
+        perror((getfileName(answerPath) + "open fail!").c_str());
         exit(0);
     }
     ofs << "-----Match" << ++count << "-----" << endl

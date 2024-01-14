@@ -1,150 +1,150 @@
 -----Match1-----
-CGGGCTTGTA
-F Range:[1648,1648]
-original Range:[100,100]
+TGCGTCTTGT
+F Range:[902404,902404]
+original Range:[1000,1000]
 
 -----Match2-----
-AATAGTTTAC
-F Range:[197,197]
-original Range:[110,110]
+GATAAGGGCT
+F Range:[547659,547661]
+original Range:[612257,407453]
 
 -----Match3-----
-ATCTTCTCTC
-F Range:[862,862]
-original Range:[120,120]
+GTCGCAGCCA
+F Range:[712379,712379]
+original Range:[1020,1020]
 
 -----Match4-----
-CATTGTGCCA
-F Range:[1231,1231]
-original Range:[130,130]
+TTCACACAGT
+F Range:[954620,954622]
+original Range:[609455,1030]
 
 -----Match5-----
-ACATCCGAAC
-F Range:[287,287]
-original Range:[140,140]
+GATCTTTCCA
+F Range:[554851,554851]
+original Range:[1040,1040]
 
 -----Match6-----
-ATACGTGCTC
-F Range:[788,788]
-original Range:[150,150]
+AGGCATAGAC
+F Range:[160870,160870]
+original Range:[1050,1050]
 
 -----Match7-----
-CAAATGTAGA
-F Range:[1006,1006]
-original Range:[160,160]
+CTAGTAGAAA
+F Range:[448760,448761]
+original Range:[650758,1060]
 
 -----Match8-----
-AGCACCCTCA
-F Range:[571,571]
-original Range:[170,170]
+TGTGGGCCTC
+F Range:[932549,932549]
+original Range:[1070,1070]
 
 -----Match9-----
-ACTACCGTGC
-F Range:[438,438]
-original Range:[180,180]
+ATTGTTCTAC
+F Range:[246032,246032]
+original Range:[1080,1080]
 
 -----Match10-----
-TTCTGACCAT
-F Range:[3874,3874]
-original Range:[190,190]
+ACTTTGTCCT
+F Range:[124812,124814]
+original Range:[1090,535209]
 
 -----Match11-----
-AACCTGGAAG
-F Range:[84,84]
-original Range:[200,200]
+AAATCGCGTA
+F Range:[13394,13395]
+original Range:[339194,1100]
 
 -----Match12-----
-AATTTAACGC
-F Range:[237,237]
-original Range:[210,210]
+TTTGCGAGCA
+F Range:[993899,993900]
+original Range:[3240,1110]
 
 -----Match13-----
-GCATAGTCGG
-F Range:[2305,2305]
-original Range:[220,220]
+GACCTATGCA
+F Range:[522906,522906]
+original Range:[1120,1120]
 
 -----Match14-----
-TGGATCCAAC
-F Range:[3643,3643]
-original Range:[230,230]
+CCTCAATCGC
+F Range:[363876,363876]
+original Range:[1130,1130]
 
 -----Match15-----
-GACCGAAGCG
-F Range:[2079,2079]
-original Range:[240,240]
+CAATGACGGC
+F Range:[263773,263775]
+original Range:[561254,905798]
 
 -----Match16-----
-TTTGGTAAAG
-F Range:[3987,3987]
-original Range:[250,250]
+GACTCATTGT
+F Range:[528748,528748]
+original Range:[1150,1150]
 
 -----Match17-----
-GTAAGGATGA
-F Range:[2772,2772]
-original Range:[260,260]
+TTAGTTGGAT
+F Range:[949580,949581]
+original Range:[418013,1160]
 
 -----Match18-----
-AAACCGACTC
-F Range:[14,14]
-original Range:[270,270]
+TATGTCGAGA
+F Range:[808587,808589]
+original Range:[1170,736991]
 
 -----Match19-----
-TGTGACCTCA
-F Range:[3719,3719]
-original Range:[280,280]
+CATGGAGCTA
+F Range:[306745,306745]
+original Range:[1180,1180]
 
 -----Match20-----
-CTTAGCGGAA
-F Range:[1930,1930]
-original Range:[290,290]
+ACGTTCGATG
+F Range:[108869,108869]
+original Range:[1190,1190]
 
 -----Match21-----
-GAAGACTACG
-F Range:[2019,2019]
-original Range:[300,300]
+TCGGTCTCAC
+F Range:[855566,855568]
+original Range:[1200,285632]
 
 -----Match22-----
-CAAACTAGGC
-F Range:[1000,1000]
-original Range:[310,310]
+CCAAGGTATG
+F Range:[314986,314987]
+original Range:[708628,1210]
 
 -----Match23-----
-GTTATCCCTA
-F Range:[2965,2965]
-original Range:[320,320]
+TGTCCCGTCC
+F Range:[927622,927623]
+original Range:[1220,241541]
 
 -----Match24-----
-CCACTACGAG
-F Range:[1266,1266]
-original Range:[330,330]
+CAGGGCTCGT
+F Range:[291516,291517]
+original Range:[1230,737549]
 
 -----Match25-----
-AAGTATGAAA
-F Range:[173,173]
-original Range:[340,340]
+CGTCGCTCCG
+F Range:[428897,428897]
+original Range:[1240,1240]
 
 -----Match26-----
-AGTTGCAGGT
-F Range:[756,756]
-original Range:[350,350]
+GAACCCGTAT
+F Range:[505688,505689]
+original Range:[1711,1250]
 
 -----Match27-----
-GGAGTTCAAC
-F Range:[2555,2555]
-original Range:[360,360]
+TATCGCCCCT
+F Range:[803624,803626]
+original Range:[223889,1260]
 
 -----Match28-----
-GACTTAGCAG
-F Range:[2129,2129]
-original Range:[370,370]
+TGCGTGTGTA
+F Range:[902628,902630]
+original Range:[658641,359061]
 
 -----Match29-----
-CATTTCATTG
-F Range:[1236,1236]
-original Range:[380,380]
+ACTTCAATGT
+F Range:[122225,122227]
+original Range:[971962,707498]
 
 -----Match30-----
-GCAGGGATGA
-F Range:[2301,2301]
-original Range:[390,390]
+CCTAGCATGC
+F Range:[362064,362065]
+original Range:[1290,78323]
 

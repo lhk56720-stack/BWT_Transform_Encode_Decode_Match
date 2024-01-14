@@ -76,20 +76,20 @@ void FMindex::bwtDeCode(BwtTransform *bwt, FileManager &fileManger)
     // bwt->Debug("C", C);
     // printOcc(bwt, Occ);
     cout << "------ExatMatch Process------" << endl;
-    ifstream ifs("../genePool/match.txt");
+    ifstream ifs(fileManger.getMatchPath());
     if (!ifs.is_open())
     {
         perror("match.txt open fail");
         exit(0);
     }
     string line, path;
-    path = "../genePool/answer.txt";
+    path = fileManger.getAnswerPath();
     ofstream ofs(path, ios::out);
     while (getline(ifs, line))
     {
         ExatMatch(bwt, line);
         // 将匹配结果写入文件中
-        fileManger.writeFile(path, ofs, line, sp, ep, bwt);
+        fileManger.writeFile(ofs, line, sp, ep, bwt);
     }
     ofs.close();
     ifs.close();

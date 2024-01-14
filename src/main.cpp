@@ -58,11 +58,11 @@ int main()
     FileManager fileManger;
     // 指定母串长度需要大于子串长度
     iscreateGenePool();
-    fileManger.writeFile("../genePool/original.txt", MAX);
+    fileManger.writeFile(MAX);
     // 指定匹配串的行数和每行字符串长度
-    // fileManger.writeFile("../genePool/match.txt", 30, 10);
+    // fileManger.writeFile(30, 10);
     string originalStr = string();
-    fileManger.readFile("../genePool/original.txt", originalStr);
+    fileManger.readFile(originalStr);
     auto start = clock();
 #if 0
         // BW矩阵
@@ -76,6 +76,9 @@ int main()
     FMindex *obj = new FMindex(bwt);
     obj->bwtDeCode(bwt, fileManger);
     auto end = clock();
+    cout << "output  have been written to answer.txt" << endl;
     cout << "executable time:" << static_cast<double>(end - start) / CLOCKS_PER_SEC << "s" << endl;
+    delete bwt;
+    delete obj;
     return 0;
 }

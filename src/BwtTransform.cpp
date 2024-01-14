@@ -7,8 +7,8 @@ BwtTransform::BwtTransform(string origin)
     baseMap = {{'$', 0}, {'A', 1}, {'C', 2}, {'G', 3}, {'T', 4}};
     originalStr = origin + MARKER;
     len = originalStr.size();
-    lastStr = string();
-    firstStr = string();
+    firstStr.reserve(len);
+    lastStr.reserve(len);
 }
 
 BwtTransform::~BwtTransform()

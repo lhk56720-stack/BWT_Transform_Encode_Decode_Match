@@ -1,72 +1,86 @@
-# BWT_Transform_Encode_Decode_Match
+# BWT 匹配算法项目
 
-#### 介绍
-随着NGS的高速发展，科学研究和医学临床等领域产生了大量数据，给数据分析带来了巨大挑战。
-传统的序列比对算法，如动态规划方法，已不适用于NGS的大规模数据，因为其时间和空间复杂度为O(n^2)，而人类基因组的大小在10^9级别。
+## 项目简介
 
-比对软件都需要面对一下几个问题：真核生物基因组中出现大量的重复区域；测序样本和参考序列的不一致；测序平台存在系统偏差
-比对软件面对测序平台带来的两个问题：测序读长和测序错误（包括错配、插入和缺失）
-当下比对软件的共同目的是：在允许一定的错配或者间隔的情况下，准确而快速地获取测序数据片段在参考序列中的位置
-各测序平台存在不同类型的系统偏差，需要选择相应的误差模型。主要的误差模型有汉明距离和编辑距离。
+该项目实现了基于 Burrows-Wheeler Transform (BWT) 的字符串匹配算法，包括 BWT 的两种实现方式：通过 BWT 矩阵实现和通过后缀数列实现。通过 FMIndex 索引结构，实现了精准匹配算法，可以在给定的基因库中高效地查找匹配串的位置。
 
-两种主流的比对算法来解决近似匹配问题：基于过滤算法和基于索引算法
-基于过滤算法的比对：
-    过滤策略是将reads切割成固定长度的片段（k-mer或seed），在参考序列中寻找与种子匹配的区域作为完全匹配的候选区域。
-    过滤算法包括基于鸽巢原理和基于q-gram的方法。
+## 软件架构
 
-基于索引算法的比对：
-    索引算法分为哈希算法和基于后缀树的算法，其中后缀树是近年来的研究热点。
-基于索引算法建立索引的方法有两类
-    简单的哈希算法：能够在参考序列中快速检索固定长度的seed      
-    较为复杂的基于后缀树数据结构的索引算法:能够在发生匹配错误或插入缺失错误的情况下，检索任意长度的seed
-    
-    q-gram索引和FM-index是常见的索引技术，FM-index在比对软件中得到广泛应用。
-    q-gram索引基于哈希算法，FM-index是一种基于Burrows-Wheeler Transform（BWT）的索引结构，它在构建时使用了后缀树或后缀数组。
-    BWT的重要特性：可逆性变换
+- **BwtTransform 类**: 基类，封装了 BWT 的基本操作和共用数据结构。
+  - **BwMatrix 类**: 通过 BWT 矩阵实现的子类。
+  - **SuffixArray 类**: 通过后缀数组实现的子类。
+- **FMIndex 类**: 封装了 FMIndex 索引结构的构建和精准匹配算法。
+- **FileManager 类**: 文件读写和数据处理相关操作。
+- **主程序 main.cpp**: 根据用户的选择，生成基因库母串、匹配串，并调用相应的 BWT 实现方式进行匹配。
+- `src/`：包含项目源代码
+- `include/`：包含头文件
+- `genePool/`：存储生成的基因库文件
+- `build/`：用于存放编译生成的可执行文件和中间文件
 
+## 依赖
 
-    基于BW矩阵来实现BWT的方法虽然浅显易懂，但需要借助m x m的旋转矩阵实现序列的排序，当T是人类基因组序列时，BWT将会消耗大量内存，所以基于BW矩阵的方法没有实用价值。
+- C++ 编译器（支持 C++11 及以上标准）
+- CMake
 
-    在后缀数组中我们采用了基数排序的方法而不是传统的sort快速排序，提升效率10倍有余
+## 编译与运行
 
-    基数排序
-![Alt text](image.png)
-SA
-![Alt text](image-1.png)
-![Alt text](image-2.png)
-后缀数组相较于BW变化可以不用将矩阵求出就可以得到变换后矩阵的首列和尾列
+### 使用g++
 
-SA后缀数组、Occ数组和L列是FM-index索引算法的三个辅助数组结构
+~~~bash
+# 进入项目根目录
+cd BWT_Transform_Encode_Decode_Match
 
-sp和ep代表F列左右区间
-SA数组映射F列和母串的关系
-#### 软件架构
-软件架构说明
+# 进入 src 目录
+cd src
+
+# 编译并执行
+g++ -std=c++11 *.cpp -o bwt
+./bwt
+~~~
 
 
-#### 安装教程
 
+### 使用 CMake
 
-#### 使用说明
-```
+```bash
+# 进入项目根目录
+cd BWT_Transform_Encode_Decode_Match
+
+# 创建 build 目录
+mkdir build
+
+# 进入 build 目录
 cd build
+
+# 使用 CMake 配置项目
 cmake ..
+
+# 编译项目
 make
-./BWT2.0 
+
+# 运行可执行文件
+./bwt
 ```
-#### 参与贡献
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 注意事项
 
+- 确保 C++ 编译器支持 C++11 及以上标准。
+- 在 Windows、Linux 等平台上均可运行，确保路径分隔符正确。
+- 文件路径请在FileManager.h中修改为符合用户的正确路径。
 
-#### 特技
+## 使用说明
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+在运行时，程序会提示用户是否重新生成基因库母串。用户可以选择 "y" 或 "n"。如果选择重新生成，程序会要求输入一个正整数作为基因库母串的长度。
+
+- 生成基因库母串：如果选择重新生成基因库母串，程序将在 `../genePool/original.txt` 中生成一个随机的基因库母串。
+- 生成匹配串：程序提供了生成匹配串的选项，用户可以在  main.cpp中取消对fileManger.writeFile(30, 10);的注释，自定义`../genePool/match.txt` 中生成指定数量和长度的匹配串。
+
+程序会输出匹配的范围和执行时间，并将匹配结果写入 `../genePool/answer.txt`。
+## 使用实例
+![Alt text](img/image.png)
+百万数据集母串
+![Alt text](img/image-1.png)
+匹配示例子串
+![Alt text](img/image-2.png)
+输出结果
+![Alt text](img/image-3.png)
