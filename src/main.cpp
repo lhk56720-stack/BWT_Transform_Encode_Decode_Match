@@ -4,9 +4,9 @@
 #include "../include/FMindex.h"
 #include "../include/FileManager.h"
 #include <iostream>
-#include <fstream>
 #include <random>
 #include <string.h>
+#include <ctime>
 using namespace std;
 int MAX = 0;
 // 选择是否重新随机生成基因库母串，是则指定串长

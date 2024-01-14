@@ -1,5 +1,5 @@
 #pragma once
-#include "../include/BwtTransform.h"
+#include "BwtTransform.h"
 #include <string>
 class SuffixArray : public BwtTransform
 {

@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/BwMatrix.h"
 #include <iostream>
 using namespace std;
@@ -40,6 +39,7 @@ string BwMatrix::getNewstr(string str, Mode mode)
     {
         return str.substr(1);
     }
+    return string();
 }
 
 void BwMatrix::sortMatrix()
