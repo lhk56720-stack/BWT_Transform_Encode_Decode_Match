@@ -15,7 +15,7 @@ public:
     // 精准匹配
     void ExatMatch(BwtTransform *bwt, std::string line);
     // 解码
-    void bwtDeCode(BwtTransform *bwt, FileManager &fileManger);
+    void bwtDeCode(BwtTransform *bwt, FileManager *fileManager);
 
 private:
     std::vector<int> C;                // 保存的是每一种碱基在 F 列中的起始位置
