@@ -28,7 +28,7 @@
 
 ~~~bash
 # 进入项目根目录
-cd BWT_Transform_Encode_Decode_Match
+cd bwt_-transform_-encode_-decode_-match
 
 # 进入 src 目录
 cd src
@@ -44,7 +44,7 @@ g++ -std=c++11 *.cpp -o bwt
 
 ```bash
 # 进入项目根目录
-cd BWT_Transform_Encode_Decode_Match
+cd bwt_-transform_-encode_-decode_-match
 
 # 创建 build 目录
 mkdir build
