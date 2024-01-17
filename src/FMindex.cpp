@@ -70,26 +70,26 @@ void printOcc(BwtTransform *bwt, vector<vector<int>> Occ)
     }
     cout << endl;
 }
-void FMindex::bwtDeCode(BwtTransform *bwt, FileManager &fileManger)
+void FMindex::bwtDeCode(BwtTransform *bwt, FileManager *fileManager)
 {
     buildOcc(bwt);
     // bwt->Debug("C", C);
     // printOcc(bwt, Occ);
     cout << "------ExatMatch Process------" << endl;
-    ifstream ifs(fileManger.getMatchPath());
+    ifstream ifs(fileManager->getMatchPath());
     if (!ifs.is_open())
     {
         perror("match.txt open fail");
         exit(0);
     }
     string line, path;
-    path = fileManger.getAnswerPath();
+    path = fileManager->getAnswerPath();
     ofstream ofs(path, ios::out);
     while (getline(ifs, line))
     {
         ExatMatch(bwt, line);
         // 将匹配结果写入文件中
-        fileManger.writeFile(ofs, line, sp, ep, bwt);
+        fileManager->writeFile(ofs, line, sp, ep, bwt);
     }
     ofs.close();
     ifs.close();

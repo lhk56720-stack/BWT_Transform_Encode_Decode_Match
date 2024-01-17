@@ -3,9 +3,17 @@
 using namespace std;
 FileManager::FileManager() : charMap{{0, 'A'}, {1, 'T'}, {2, 'G'}, {3, 'C'}}
 {
+#ifdef _WIN32
+    // Windows 下的路径设置
+    originalPath = "..\\genePool\\original.txt";
+    matchPath = "..\\genePool\\match.txt";
+    answerPath = "..\\genePool\\answer.txt";
+#else
+    // Linux 下的路径设置
     originalPath = "../genePool/original.txt";
     matchPath = "../genePool/match.txt";
     answerPath = "../genePool/answer.txt";
+#endif
 }
 void FileManager::readFile(string &buf)
 {
