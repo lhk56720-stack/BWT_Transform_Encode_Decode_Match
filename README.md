@@ -59,7 +59,7 @@ cmake ..
 make
 
 # 运行可执行文件
-./bwt.exe
+./bwt
 ```
 
 ## 注意事项
