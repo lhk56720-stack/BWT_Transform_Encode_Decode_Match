@@ -79,7 +79,7 @@ void FMindex::bwtDeCode(BwtTransform *bwt, FileManager *fileManager)
     ifstream ifs(fileManager->getMatchPath());
     if (!ifs.is_open())
     {
-        perror("match.txt open fail");
+        perror((fileManager->getfileName(fileManager->getMatchPath()) + " open fail").c_str());
         exit(0);
     }
     string line, path;

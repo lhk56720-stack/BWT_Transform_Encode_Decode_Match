@@ -76,9 +76,10 @@ int main()
     FMindex *obj = new FMindex(bwt);
     obj->bwtDeCode(bwt, fileManager);
     auto end = clock();
-    cout << "output  have been written to answer.txt" << endl;
+    cout << ("output  have been written to " + fileManager->getfileName(fileManager->getAnswerPath())).c_str() << endl;
     cout << "executable time:" << static_cast<double>(end - start) / CLOCKS_PER_SEC << "s" << endl;
     delete bwt;
     delete obj;
+    delete fileManager;
     return 0;
 }

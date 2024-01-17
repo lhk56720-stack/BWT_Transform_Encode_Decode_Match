@@ -20,7 +20,7 @@ void FileManager::readFile(string &buf)
     ifstream ifs(originalPath);
     if (!ifs.is_open())
     {
-        perror((getfileName(originalPath) + "open fail!").c_str());
+        perror((getfileName(originalPath) + " open fail!").c_str());
         exit(0);
     }
     buf = string();
@@ -37,7 +37,7 @@ void FileManager::writeFile(int Max)
     ofstream ofs(originalPath, ios::out);
     if (!ofs.is_open())
     {
-        perror((getfileName(originalPath) + "open fail!").c_str());
+        perror((getfileName(originalPath) + " open fail!").c_str());
         exit(0);
     }
     for (int i = 0; i < Max; ++i)
@@ -51,7 +51,7 @@ void FileManager::writeFile(int m, int n)
     ofstream ofs(matchPath, ios::out);
     if (!ofs.is_open())
     {
-        perror((getfileName(matchPath) + "open fail!").c_str());
+        perror((getfileName(matchPath) + " open fail!").c_str());
         exit(0);
     }
     for (int i = 0; i < m; ++i) // 数据行数
@@ -69,7 +69,7 @@ void FileManager::writeFile(ofstream &ofs, string line, int sp, int ep, BwtTrans
     static int count = 0;
     if (!ofs.is_open())
     {
-        perror((getfileName(answerPath) + "open fail!").c_str());
+        perror((getfileName(answerPath) + " open fail!").c_str());
         exit(0);
     }
     ofs << "-----Match" << ++count << "-----" << endl
@@ -81,7 +81,7 @@ void FileManager::writeFile(ofstream &ofs, string line, int sp, int ep, BwtTrans
 string FileManager::getfileName(string path)
 {
     string fileName = string();
-    for (int i = path.size(); i >= 0; i--)
+    for (int i = path.size() - 1; i >= 0; i--)
     {
         if (path.at(i) == '/' || path.at(i) == '\\')
         {
